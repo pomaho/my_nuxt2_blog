@@ -1,7 +1,8 @@
 <template>
     <div>
-        <ExampleComponent :variable="variable" />
+        <ExampleComponent @sendTopage="data_from_component = $event" />
         <h1>Это страница - родитель</h1>
+        <p>Это данные из компонента <b>{{ data_from_component }}</b></p>
     </div>
 </template>
 
@@ -13,7 +14,7 @@ export default {
     },
     data() {
         return {
-            variable: "Я передана из родителя"
+            data_from_component: ""
         }
     }
 }

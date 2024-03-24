@@ -1,13 +1,23 @@
 <template>
   <div>
     <h1>Это компонент - ребенок</h1>
-    <p>Сюда мы хотим передать переменную <b>{{ variable }}</b></p>
+    <input type="text" placeholder="Введите текст, который надо передать на страницу" v-model="text">
+    <button @click='sendTopage()'>Передать на страницу</button>
   </div>
 </template>
 
 <script>
 export default {
-  props: ['variable']
+  data() {
+    return {
+      text: ''
+    }
+  },
+  methods: {
+    sendTopage() {
+      this.$emit('sendTopage', this.text)
+    }
+  }
 }
 </script>
 
